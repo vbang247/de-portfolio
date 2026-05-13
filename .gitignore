@@ -1,20 +1,16 @@
-logs/
-*.pyc
-.env
-*.duckdb
+# Python (any depth)
+**/__pycache__/
+**/*.pyc
+**/venv/
 
+# Environment & local data
+**/.env
+**/*.duckdb
 
-logs/
-*.pyc
-.env
-venv/
-__pycache__/
-dbt_packages/
-target/
-logs/
-*.pyc
-.env
-venv/
-__pycache__/
-dbt_packages/
-target/
+# dbt (any depth)
+**/dbt_packages/
+**/target/
+**/.learning_venv/
+
+# Logs (any depth)
+**/logs/
