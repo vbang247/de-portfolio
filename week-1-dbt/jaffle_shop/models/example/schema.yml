@@ -1,0 +1,53 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: orders_summary
+    description: "A summary of orders"
+    columns:
+      - name: user_id
+        description: "The user id"
+        data_tests:
+          - unique
+          - not_null
+      - name: order_count
+        description: "The number of orders"
+        data_tests:
+          - not_null
+      - name: status
+        description: "The status of the order"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["completed", "shipped", "returned", "return_pending", "placed"]
+  
+  - name: customer_segments
+    description: "Customer bucketed into value segments"
+    columns:
+      - name: user_id
+        data_tests:
+          - unique
+          - not_null
+      - name: segment
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["high_value", "medium_value", "low_value"]
