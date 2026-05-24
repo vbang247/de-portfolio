@@ -6,6 +6,7 @@
 # Environment & local data
 **/.env
 **/*.duckdb
+**/*.db
 
 # dbt (any depth)
 **/dbt_packages/
