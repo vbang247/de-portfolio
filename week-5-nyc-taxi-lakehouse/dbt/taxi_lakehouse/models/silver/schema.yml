@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: stg_taxi_trips
+    description: "Cleaned and validated NYC taxi trips. 
+      Filters out bad data from bronze layer including 
+      negative fares, zero passengers, future timestamps, 
+      and fare outliers above $1000. Adds derived columns 
+      for trip category, pickup hour, and rush hour flag."
+    columns:
+      - name: trip_id
+        description: "Surrogate key — row number assigned during silver processing"
+        data_tests:
+          - not_null
+          - unique
+      - name: passenger_count
+        description: "Number of passengers — filtered to > 0 in silver"
+        data_tests:
+          - not_null
+      - name: total_amount
+        description: "Total fare amount — filtered between 0 and 1000"
+        data_tests:
+          - not_null
+      - name: trip_duration_minutes
+        description: "Duration in minutes between pickup and dropoff"
+        data_tests:
+          - not_null
+      - name: trip_category
+        description: "Trip length category: short (<2mi), medium (2-10mi), long (>10mi)"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['short', 'medium', 'long']
+      - name: is_rush_hour
+        description: "True if pickup was between 7-9am or 5-7pm"
+      - name: pickup_hour
+        description: "Hour of pickup (0-23)"
+
