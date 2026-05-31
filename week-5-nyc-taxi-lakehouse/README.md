@@ -42,9 +42,8 @@ Gold Layer — business models
 - Absolute container paths in profiles.yml for Docker compatibility
 
 ### dbt Lineage
-[paste your lineage screenshot here]
-/Users/varsha_ratankumar_bang/Downloads/McKinsey/14-week-projects/de-portfolio/week-5-nyc-taxi-lakehouse/dbt_lineage_graph.png
-image.png
+
+<img width="922" height="426" alt="image" src="https://github.com/user-attachments/assets/3f252dde-cde9-4a57-8ad4-1c4151da08d1" />
 
 ---
 
