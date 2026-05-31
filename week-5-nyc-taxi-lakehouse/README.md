@@ -43,7 +43,7 @@ Gold Layer — business models
 
 ### dbt Lineage
 [paste your lineage screenshot here]
-
+/Users/varsha_ratankumar_bang/Downloads/McKinsey/14-week-projects/de-portfolio/week-5-nyc-taxi-lakehouse/dbt_lineage_graph.png
 image.png
 
 ---
