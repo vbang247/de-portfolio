@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fct_hourly_revenue
+    description: "Revenue and trip metrics aggregated by pickup hour. 
+      Used for identifying peak demand periods and pricing analysis."
+    columns:
+      - name: pickup_hour
+        description: "Hour of day (0-23)"
+        tests:
+          - unique
+          - not_null
+      - name: total_trips
+        description: "Total number of trips in this hour"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Sum of all fares in this hour"
+        tests:
+          - not_null
+
+  - name: fct_trip_summary
+    description: "Trip metrics aggregated by trip category (short/medium/long).
+      Includes revenue percentage contribution per category."
+    columns:
+      - name: trip_category
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: ['short', 'medium', 'long']
+
+  - name: fct_daily_revenue
+    description: "Daily revenue trend across all trips.
+      Used for time-series analysis and anomaly detection."
+    columns:
+      - name: trip_date
+        tests:
+          - unique
+          - not_null

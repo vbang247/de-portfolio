@@ -1,0 +1,14 @@
+version: 2
+sources:
+  - name: bronze
+    schema: bronze
+    description: "Raw NYC Taxi data loaded directly from Parquet files.
+      No transformations applied — source of truth for reprocessing."
+    tables:
+      - name: taxi_trips_raw
+        description: "Raw NYC Taxi trips for April 2019. 
+          Contains 7.4M rows including bad data filtered in silver layer."
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        loaded_at_field: _ingested_at
